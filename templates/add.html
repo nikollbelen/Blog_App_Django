@@ -1,0 +1,31 @@
+{% block add %}
+
+<style>
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<!-- Sidebar para añadir un nuevo post -->
+<div class="col-md-4 float-right ">
+    <div class="card my-4">
+        <h5 class="card-header">Añadir nuevo blog</h5>
+        <div class="card-body">
+            <form action="/registrarPost/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtTitle" name="txtTitle" class="form-control" placeholder="Título"
+                        maxlength="200" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="txtContent" name="txtContent" class="form-control" rows="10" placeholder="Contenido"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock add %}
